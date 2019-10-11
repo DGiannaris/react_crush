@@ -7,7 +7,7 @@ import MenuButton from './MenuButton.js';
 
 function Header() {
   return (
-
+ 
     <div className="Header">
       <div className="header-text">Just Do It</div>
         <TodoList />

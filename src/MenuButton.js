@@ -11,7 +11,7 @@ function MenuButton() {
     <li className="Dots"> </li>
     <li className="Dots"> </li>
     <li className="Dots"> </li>
-    </ul>
+    </ul> 
     </div>
     </div>
   );
