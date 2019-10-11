@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 .App {
   text-align: center;
   display:flex;
-
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -15,8 +17,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }

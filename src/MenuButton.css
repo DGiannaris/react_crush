@@ -1,0 +1,37 @@
+
+.MenuButton{
+  position: absolute;
+  top:-13px;
+  right:9px;
+  left:auto;
+
+width:28px;
+height:0px;
+}
+
+.Button{
+width:28px;
+}
+
+.Fakelist{
+
+  width: 100%;
+  height: 0;
+  padding: 50% 0;
+  border-radius: 50%;
+
+}
+
+.Fakelist:hover{
+  background-color:#4DB6AC;
+}
+
+.Dots{
+  position:relative;
+  font-size: 11px;
+  margin-top:-8px;
+  left:26px;
+  top:-4.58px;
+  color:#ECEFF1;
+
+}
