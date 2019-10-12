@@ -1,16 +1,18 @@
 
 .InputBox{
+
 position:relative;
-left:-12.3em;
-top:-3.3em;
+left:25%;
+top:-335px;
 padding:0 .5em 0 .5em;
 background-color: white;
-width:11em;
+width:30%;
 height:1.8em;
 border-radius: 7px;
 border: 1px solid #ccc;
 
 text-align: left;
+box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
 
 }
 

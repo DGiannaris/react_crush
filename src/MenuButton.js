@@ -1,35 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { PropTypes } from 'react';
 
 import './MenuButton.css';
-import Input from './Input.js';
 
 
-function MenuButton() {
-
- const [value, setValue] = useState('Watcha gonna do?');
- const [inputVisibility,setInputVisibility]=useState('NOTVIS');
-
-
- let getInput=()=>{
-   inputVisibility=='NOTVIS'?setInputVisibility('VIS'):setInputVisibility('NOTVIS');
-   //alert(inputVisibility);
- }
+class MenuButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
 
-  return (
+  render() {
+    return (
 
-    <div className="MenuButton" >
-    <div className="Button"onClick={getInput}>
-    <ul className="Fakelist">
-    <li className="Dots"> </li>
-    <li className="Dots"> </li>
-    <li className="Dots"> </li>
-    </ul>
+    <div className = "MenuButton" >
+      <div className = "Button"  onClick = {this.props.handleClick} >
+        <ul className = "Fakelist" >
+          <li className = "Dots" > < /li>
+          <li className = "Dots" > < /li>
+          <li className = "Dots" > < /li>
+        </ul>
 
-    </div>
-      {inputVisibility=='VIS'?<Input/>:null}
-    </div>
-  );
+      </div>
+
+      </div>
+    );
+  }
 }
 
 export default MenuButton;

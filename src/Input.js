@@ -1,6 +1,6 @@
 import React from 'react';
-
 import './Input.css';
+import {useSpring, animated} from 'react-spring';
 
 function Input() {
 //todo oneday
@@ -9,20 +9,18 @@ function Input() {
 // el.target.style.height=el.target.value.length+"ch";
 //
 // }
-
-
-
+const anim = useSpring({
+  opacity: 1,
+  from: { opacity: 0 },
+});
   return (
+    <animated.div  style={anim} className = "Input" >
+    <input className = 'InputBox'
+    type = "text"
+    placeholder = "  Watcha gonna do?"/>
 
-    <div className="Input">
-    <input className='InputBox'
-          type="text"
-          placeholder="  Watcha gonna do?"
-          // onChange={expandHeight}
-        />
-
-    </div>
+    </animated.div>
   );
-}
+  }
 
 export default Input;
