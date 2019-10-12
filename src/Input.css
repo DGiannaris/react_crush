@@ -1,0 +1,21 @@
+
+.InputBox{
+position:relative;
+left:-12.3em;
+top:-3.3em;
+padding:0 .5em 0 .5em;
+background-color: white;
+width:11em;
+height:1.8em;
+border-radius: 7px;
+border: 1px solid #ccc;
+
+text-align: left;
+
+}
+
+.InputBox::placeholder{
+color:#CFD8DC;
+font-weight: bolder;
+
+}
