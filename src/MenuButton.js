@@ -1,20 +1,12 @@
 import React from 'react';
-import { PropTypes } from 'react';
-
 import './MenuButton.css';
 
+function MenuButton(props){
 
-class MenuButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-  render() {
     return (
 
     <div className = "MenuButton" >
-      <div className = "Button"  onClick = {this.props.handleClick} >
+      <div className = "Button"  onClick = {props.handleClick} >
         <ul className = "Fakelist" >
           <li className = "Dots" > < /li>
           <li className = "Dots" > < /li>
@@ -26,6 +18,6 @@ class MenuButton extends React.Component {
       </div>
     );
   }
-}
+
 
 export default MenuButton;

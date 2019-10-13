@@ -1,49 +1,39 @@
 import React, {useState} from 'react';
-import { PropTypes } from 'react';
 import './Header.css';
 import TodoList from './TodoList.js';
 import MenuButton from './MenuButton.js';
 import Input from './Input.js';
 
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      value:'',
-      inputVisibility:false
-    }
+function Header(){
 
-    this.handleVal = this.handleVal.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
+    const [value,setValue]=useState('');
+    const [inputVisibility,setInputVisibility]=useState(false);
 
+      let handleClick=()=>{
+        setInputVisibility(!inputVisibility);
+      }
 
+      let handleVal=(value)=>{
+        setValue(value);
+      }
 
-handleVal(val){
-  this.setState({value:val});
-}
+let todos=value.split(',');
 
-
-  handleClick(){
-    this.setState({inputVisibility:!this.state.inputVisibility});
-
-}
-  render() {
 
    return (
 
       <div className = "Header" >
-      <div className = "header-text" > Just Do It < /div>
-      <TodoList / >
-      < MenuButton handleClick = {this.handleClick} / >
-      {this.state.inputVisibility === true ? < Input / > : null}
+        <div className = "header-text" > Just Do It < /div>
+          <TodoList todos={todos}/ >
+          < MenuButton handleClick = {handleClick} / >
+          {inputVisibility === true ? < Input handleval={handleVal} / > : null}
       </div>
 
     );
 
 
   }
-}
+
 
 export default Header;
