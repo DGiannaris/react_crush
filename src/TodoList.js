@@ -1,39 +1,36 @@
 import React,{useEffect} from 'react';
-import {useRef} from 'react';
 import './TodoList.css';
 
 function TodoList(props) {
  let loadedtodos;
  let trimmedtodos;
 
-const todosRef = useRef(props.todos);
-todosRef.current=props.todos;
 
  const itemsGet=(key)=>{
 
    loadedtodos={...localStorage}
+
    trimmedtodos=Object.values(loadedtodos).map((item)=>
-      item=item.match(/\w/ig).join('')
+      item=item.match(/\w/ig).join('').split(',')
    )
+
  }
 
 
- const itemsSave =(key)=>{
-   let str = JSON.stringify(props.todos);
-   localStorage.setItem('todos'+key,str);
+ const itemsSave =(key,ind)=>{
+   localStorage.setItem('todos'+key,props.todos[ind]);
  }
 
  useEffect(() => {
      const items = setTimeout(() => {
        props.todos.map((i,ind) =>{
-         //console.log(i)
 
        if(i!==''){
-         itemsSave(i);
+         itemsSave(i,ind);
 
        }
      });
-   }, 2000);
+   }, 800);
 
      return () => clearTimeout(items);//what do we say to the god of memory leaks? not today.
    }, [props.todos]);
