@@ -38,20 +38,20 @@ function TodoList(props) {
 
 
 itemsGet();
-let  itemsShow=(from)=>{from.map((i,ind)=>{
+const  itemsShow=trimmedtodos.map((i,ind)=>{
    if(i!==''){
     return(
       <li className="item" key={i+ind.toString()}>
-        <div className="item-box" style={{
+        <div className="item-box" key={ind} style={{
           textDecoration: props.checked ? 'line-through' : 'none',
-          backgroundColor:props.checked ? '#004D40':null,
+          backgroundColor: props.checked ? '#004D40':null,
         }} onClick={props.setcheck}
         >{i}</div>
       </li> )
 
     }
   })
-}
+
 
 
 const itemsShowtemp=props.todos.map((i,ind)=>{
@@ -60,7 +60,7 @@ const itemsShowtemp=props.todos.map((i,ind)=>{
       <li className="item" key={i+ind.toString()} >
         <div className="item-box" style={{
           textDecoration: props.checked ? 'line-through' : 'none',
-          backgroundColor:'#004D40',
+          backgroundColor:props.checked ? '#004D40':null,
         }} onClick={props.setcheck}>{i}</div>
       </li> )
 
@@ -75,8 +75,8 @@ const itemsShowtemp=props.todos.map((i,ind)=>{
     <div className="todoList">
       <div className="listbox">
       <ul  className="list">
-            {itemsShow(trimmedtodos)}
-            //{itemsShowtemp}
+            {itemsShow}
+            {itemsShowtemp}
             <li className="item"><div className="item-box">Add shit...</div></li>
       </ul>
       </div>

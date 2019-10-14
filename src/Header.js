@@ -10,7 +10,7 @@ function Header(){
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
     const [itemChecked,setItemChecked]=useState(false);
-
+    const [itemid,setItemid]=useState('');
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
@@ -23,6 +23,11 @@ function Header(){
 
       let handleitemChecked=()=>{
         setItemChecked(!itemChecked);
+      }
+
+
+      let handleitemid=(id)=>{
+        setItemid(id);
       }
 
 
