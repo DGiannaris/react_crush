@@ -12,6 +12,7 @@ function Header(){
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
+        setValue('');
       }
 
       let handleVal=(value)=>{

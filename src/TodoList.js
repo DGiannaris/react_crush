@@ -6,34 +6,36 @@ function TodoList(props) {
  let trimmedtodos;
 
 
- const itemsGet=(key)=>{
+ const itemsGet = (key) => {
 
-   loadedtodos={...localStorage}
+   loadedtodos = {...localStorage}
 
-   trimmedtodos=Object.values(loadedtodos).map((item)=>
-      item=item.match(/\w/ig).join('').split(',')
+   trimmedtodos = Object.values(loadedtodos).map((item) =>
+     item = item.match(/\w/ig).join('').split(',')
+
    )
+   // console.log(trimmedtodos);
 
  }
 
 
- const itemsSave =(key,ind)=>{
-   localStorage.setItem('todos'+key,props.todos[ind]);
- }
+ const itemsSave = (key, ind) => {
+   localStorage.setItem('todos' + key, props.todos[ind]);}
+   
 
  useEffect(() => {
-     const items = setTimeout(() => {
-       props.todos.map((i,ind) =>{
+       const items = setTimeout(() => {
+         props.todos.map((i, ind) => {
+           //console.log(i);
+           if (i !== '') {
+             itemsSave(i, ind);
 
-       if(i!==''){
-         itemsSave(i,ind);
+           }
+         });
+       }, 600);
 
-       }
-     });
-   }, 800);
-
-     return () => clearTimeout(items);//what do we say to the god of memory leaks? not today.
-   }, [props.todos]);
+       return () => clearTimeout(items); //what do we say to the god of memory leaks? not today.
+     },[props.todos]);
 
 
 itemsGet();
