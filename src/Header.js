@@ -9,15 +9,22 @@ function Header(){
 
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
+    const [itemChecked,setItemChecked]=useState(false);
+
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
-        setValue('');
+
       }
 
       let handleVal=(value)=>{
         setValue(value);
       }
+
+      let handleitemChecked=()=>{
+        setItemChecked(!itemChecked);
+      }
+
 
 let todos=value.split(',');
 
@@ -25,7 +32,9 @@ let todos=value.split(',');
 
       <div className = "Header" >
         <div className = "header-text" > Just Do It < /div>
-          <TodoList todos={todos}/ >
+          <TodoList todos={todos}
+          vis={inputVisibility} setval={handleVal} setcheck={handleitemChecked}
+          checked={itemChecked}/ >
           < MenuButton handleClick = {handleClick} / >
           {inputVisibility === true ? < Input handleval={handleVal} / > : null}
       </div>

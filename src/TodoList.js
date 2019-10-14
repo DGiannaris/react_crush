@@ -11,43 +11,63 @@ function TodoList(props) {
    loadedtodos = {...localStorage}
 
    trimmedtodos = Object.values(loadedtodos).map((item) =>
-     item = item.match(/\w/ig).join('').split(',')
-
+    {
+    return  item =item.match(/\w+\s*/ig).join('').split(',')}
    )
-   // console.log(trimmedtodos);
+
 
  }
 
 
- const itemsSave = (key, ind) => {
-   localStorage.setItem('todos' + key, props.todos[ind]);}
-   
+ const itemsSave = (i,ind) => {
+   localStorage.setItem('todos' +i, props.todos[ind]);
+   props.setval('');
+ }
+
 
  useEffect(() => {
-       const items = setTimeout(() => {
-         props.todos.map((i, ind) => {
-           //console.log(i);
+         const items=props.todos.map((i, ind) => {
            if (i !== '') {
-             itemsSave(i, ind);
+             itemsSave(i,ind);}
 
-           }
          });
-       }, 600);
+
 
        return () => clearTimeout(items); //what do we say to the god of memory leaks? not today.
-     },[props.todos]);
+     },[props.vis]);
 
 
 itemsGet();
-const itemsShow= trimmedtodos.map((i,ind)=>{
+let  itemsShow=(from)=>{from.map((i,ind)=>{
    if(i!==''){
     return(
       <li className="item" key={i+ind.toString()}>
-        <div className="item-box">{i}</div>
+        <div className="item-box" style={{
+          textDecoration: props.checked ? 'line-through' : 'none',
+          backgroundColor:props.checked ? '#004D40':null,
+        }} onClick={props.setcheck}
+        >{i}</div>
+      </li> )
+
+    }
+  })
+}
+
+
+const itemsShowtemp=props.todos.map((i,ind)=>{
+   if(i!==''){
+    return(
+      <li className="item" key={i+ind.toString()} >
+        <div className="item-box" style={{
+          textDecoration: props.checked ? 'line-through' : 'none',
+          backgroundColor:'#004D40',
+        }} onClick={props.setcheck}>{i}</div>
       </li> )
 
   }
 })
+
+
 
 
   return (
@@ -55,7 +75,8 @@ const itemsShow= trimmedtodos.map((i,ind)=>{
     <div className="todoList">
       <div className="listbox">
       <ul  className="list">
-            {itemsShow}
+            {itemsShow(trimmedtodos)}
+            //{itemsShowtemp}
             <li className="item"><div className="item-box">Add shit...</div></li>
       </ul>
       </div>
