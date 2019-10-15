@@ -6,11 +6,14 @@ import Input from './Input.js';
 
 
 function Header(){
-
-
+   let initialitemid=localStorage.getItem('itemschecked').split(',');
+  //   Object.keys(localStorage).forEach((key)=>{
+  // initialitemid.push(Number(localStorage.getItem('itemschecked') || 0))
+  //   })
+    console.log(initialitemid)
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
-    const [itemid,setItemid]=useState([...localStorage['itemschecked']]);
+    const [itemid,setItemid]=useState([...initialitemid]);
 
 
       let handleClick=()=>{
