@@ -7,19 +7,19 @@ function TodoList(props) {
 
 
 
- const itemsGet = () => {
-
-   loadedtodos = {...localStorage}
-
-   trimmedtodos = Object.values(loadedtodos).filter((item) =>
-    {
-      if(Object.keys(loadedtodos).find(key => loadedtodos[key] === item).match(/^(todos)/)){
-        return  item = item.match(/\w+\s*/ig).toString().split(',')
-      }
-
-  })
-
- }
+ // const itemsGet = () => {
+ //
+ //   loadedtodos = {...localStorage}
+ //
+ //   trimmedtodos = Object.values(loadedtodos).filter((item) =>
+ //    {
+ //      if(Object.keys(loadedtodos).find(key => loadedtodos[key] === item).match(/^(todos)/)){
+ //        return  item = item.match(/\w+\s*/ig).toString().split(',')
+ //      }
+ //
+ //  })
+ //
+ // }
 
 
 
@@ -49,9 +49,9 @@ useEffect(() => {
          },[props.checked]);
 
 
-itemsGet();
+//itemsGet();
 
-const  itemsShow=trimmedtodos.map((i,ind)=>{
+const  itemsShow=props.list.map((i,ind)=>{
    if(i!==''){
     return(
       <li className="item" key={i+ind.toString()}>

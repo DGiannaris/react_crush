@@ -7,14 +7,17 @@ import Input from './Input.js';
 
 function Header(){
    let initialitemid=localStorage.getItem('itemschecked').split(',');
-  //   Object.keys(localStorage).forEach((key)=>{
-  // initialitemid.push(Number(localStorage.getItem('itemschecked') || 0))
-  //   })
-    console.log(initialitemid)
+   let initlistitems=Object.keys(localStorage).map((key)=>{
+    if(key.includes('todo')){
+        return localStorage[key]}
+     }).filter((val)=>{return val!=null})
+
+  //  console.log(initlistitems)
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
     const [itemid,setItemid]=useState([...initialitemid]);
-
+    const [listitems,setListItems]=useState([initlistitems])
+console.log(listitems)
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
@@ -40,7 +43,7 @@ let todos=value.split(',');
 
       <div className = "Header" >
         <div className = "header-text" > Just Do It < /div>
-          <TodoList todos={todos}
+          <TodoList todos={todos} list={listitems}
           vis={inputVisibility} setval={handleVal} setcheck={handleitemid}
           checked={itemid}/ >
           < MenuButton handleClick = {handleClick} / >
