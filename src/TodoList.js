@@ -4,8 +4,7 @@ import './TodoList.css';
 function TodoList(props) {
  let loadedtodos;
  let trimmedtodos;
- let loadedchecked;
-let trimmedchecked;
+
 
 
  const itemsGet = () => {
@@ -22,14 +21,6 @@ let trimmedchecked;
 
  }
 
- const checkedGet=()=>{
-    loadedchecked={...localStorage};
-   trimmedchecked=Object.values(loadedchecked).filter((item)=>{
-     return Object.keys(loadedchecked).find(key => loadedchecked[key] === item).match(/^(itemschecked)/)
-   })
-   console.log(localStorage)
-   console.log(trimmedchecked)
- }
 
 
  const itemsSave = (i,ind) => {
@@ -53,22 +44,22 @@ let trimmedchecked;
 
      },[props.vis]);
 
+useEffect(() => {
+       checkedSave(props.checked);
+         },[props.checked]);
 
 
 itemsGet();
-checkedGet();
-//console.log(trimmedchecked);
 
 const  itemsShow=trimmedtodos.map((i,ind)=>{
    if(i!==''){
     return(
       <li className="item" key={i+ind.toString()}>
         <div className="item-box" hackedkey={ind} style={{
-          textDecoration: trimmedchecked.some(i=>ind.toString()==i.toString()) ? 'line-through' : 'none',
-          backgroundColor: trimmedchecked.some(i=>ind.toString()==i.toString()) ? '#004D40':null,
+          textDecoration: props.checked.some(i=>ind.toString()==i.toString()) ? 'line-through' : 'none',
+          backgroundColor: props.checked.some(i=>ind.toString()==i.toString()) ? '#004D40':null,
         }} onClick={(event)=>{
           props.setcheck(event.target.attributes.getNamedItem('hackedkey').value);
-          checkedSave(props.checked);
         }}>{i}</div>
       </li> )
 

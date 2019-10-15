@@ -7,9 +7,11 @@ import Input from './Input.js';
 
 function Header(){
 
+
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
-    const [itemid,setItemid]=useState([]);
+    const [itemid,setItemid]=useState([...localStorage['itemschecked']]);
+
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
@@ -22,8 +24,10 @@ function Header(){
 
       let handleitemid=(id)=>{
 
-      itemid.some(i=>i===id)?setItemid(itemid.filter(e => e !== id)):setItemid([...itemid,id]);
-
+      if(itemid.some(item=>item===id)){
+        setItemid(itemid.filter(e => e !== id))}
+      else{
+        setItemid([...itemid,id])}
       }
 
 
