@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.10.2",
+    "react-app": "^1.1.2",
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
