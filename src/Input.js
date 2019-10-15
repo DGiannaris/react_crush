@@ -21,7 +21,7 @@ const anim = useSpring({
     <input className = 'InputBox'
     type = "text"
     onChange={event=>props.handleval(event.target.value)}
-    placeholder = "  Watcha gonna do?"/>
+    placeholder = " Watcha gonna do?"/>
 
     </animated.div>
   );

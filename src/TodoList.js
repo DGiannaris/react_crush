@@ -5,7 +5,7 @@ function TodoList(props) {
  let loadedtodos;
  let trimmedtodos;
  let loadedchecked;
-  let trimmedchecked;
+let trimmedchecked;
 
 
  const itemsGet = () => {
@@ -25,8 +25,10 @@ function TodoList(props) {
  const checkedGet=()=>{
     loadedchecked={...localStorage};
    trimmedchecked=Object.values(loadedchecked).filter((item)=>{
-     return Object.keys(loadedchecked).find(key => loadedtodos[key] === item).match(/^(itemschecked)/)
+     return Object.keys(loadedchecked).find(key => loadedchecked[key] === item).match(/^(itemschecked)/)
    })
+   console.log(localStorage)
+   console.log(trimmedchecked)
  }
 
 
@@ -36,7 +38,9 @@ function TodoList(props) {
  }
 
  const checkedSave=(itemschecked)=>{
-   return  itemschecked.length>0?localStorage.setItem('itemschecked',itemschecked):null;
+
+   return localStorage.setItem('itemschecked',itemschecked);
+
  }
 
 
@@ -50,27 +54,22 @@ function TodoList(props) {
      },[props.vis]);
 
 
-useEffect(() => {
-        checkedSave(props.checked)
-
-      },[props.checked]);
-
 
 itemsGet();
-console.log(checkedGet());
+checkedGet();
+//console.log(trimmedchecked);
+
 const  itemsShow=trimmedtodos.map((i,ind)=>{
    if(i!==''){
     return(
       <li className="item" key={i+ind.toString()}>
         <div className="item-box" hackedkey={ind} style={{
-          textDecoration: props.checked.some(i=>ind==i) ? 'line-through' : 'none',
-          backgroundColor: props.checked.some(i=>ind==i) ? '#004D40':null,
+          textDecoration: trimmedchecked.some(i=>ind.toString()==i.toString()) ? 'line-through' : 'none',
+          backgroundColor: trimmedchecked.some(i=>ind.toString()==i.toString()) ? '#004D40':null,
         }} onClick={(event)=>{
-
-          props.setcheck(event.target.attributes.getNamedItem('hackedkey').value)
-
-        }}
-        >{i}</div>
+          props.setcheck(event.target.attributes.getNamedItem('hackedkey').value);
+          checkedSave(props.checked);
+        }}>{i}</div>
       </li> )
 
     }
@@ -87,8 +86,6 @@ const itemsShowtemp=props.todos.map((i,ind)=>{
 
   }
 })
-
-
 
 
   return (
