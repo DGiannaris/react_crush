@@ -6,23 +6,6 @@ function TodoList(props) {
  let trimmedtodos;
 
 
-
- // const itemsGet = () => {
- //
- //   loadedtodos = {...localStorage}
- //
- //   trimmedtodos = Object.values(loadedtodos).filter((item) =>
- //    {
- //      if(Object.keys(loadedtodos).find(key => loadedtodos[key] === item).match(/^(todos)/)){
- //        return  item = item.match(/\w+\s*/ig).toString().split(',')
- //      }
- //
- //  })
- //
- // }
-
-
-
  const itemsSave = (i,ind) => {
    localStorage.setItem('todos' +i, props.todos[ind]);
    props.setval('');
@@ -48,8 +31,6 @@ useEffect(() => {
        checkedSave(props.checked);
          },[props.checked]);
 
-
-//itemsGet();
 
 const  itemsShow=props.list.map((i,ind)=>{
    if(i!==''){

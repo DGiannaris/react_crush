@@ -6,18 +6,20 @@ import Input from './Input.js';
 
 
 function Header(){
+ let initlistitems=[];
    let initialitemid=localStorage.getItem('itemschecked').split(',');
-   let initlistitems=Object.keys(localStorage).map((key)=>{
-    if(key.includes('todo')){
-        return localStorage[key]}
-     }).filter((val)=>{return val!=null})
 
-  //  console.log(initlistitems)
+   Object.keys(localStorage).filter((key)=>{
+        if(key.includes('todo')){
+          initlistitems.push(localStorage[key])
+        }
+   })
+
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
     const [itemid,setItemid]=useState([...initialitemid]);
-    const [listitems,setListItems]=useState([initlistitems])
-console.log(listitems)
+    const [listitems,setListItems]=useState([...initlistitems])
+
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
