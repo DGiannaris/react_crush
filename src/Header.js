@@ -7,7 +7,7 @@ import Input from './Input.js';
 
 function Header(){
  let initlistitems=[];
-   let initialitemid=localStorage.getItem('itemschecked').split(',');
+   let initialitemid=localStorage.getItem('itemschecked') || '0'.split(',');
 
    Object.keys(localStorage).filter((key)=>{
         if(key.includes('todo')){
