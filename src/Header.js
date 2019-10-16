@@ -7,8 +7,10 @@ import Input from './Input.js';
 
 function Header(){
  let initlistitems=[];
-   let initialitemid=localStorage.getItem('itemschecked') || '0'.split(',');
 
+   let initialitemid=JSON.parse('['+localStorage.getItem('itemschecked')+']') ;
+      if(!localStorage.itemschecked){initialitemid=[999]};
+   //console.log(initialitemid)
    Object.keys(localStorage).filter((key)=>{
         if(key.includes('todo')){
           initlistitems.push(localStorage[key])
@@ -18,8 +20,7 @@ function Header(){
     const [value,setValue]=useState('');
     const [inputVisibility,setInputVisibility]=useState(false);
     const [itemid,setItemid]=useState([...initialitemid]);
-    const [listitems,setListItems]=useState([...initlistitems])
-
+    const [listitems,setListItems]=useState([...initlistitems]);
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
@@ -32,6 +33,8 @@ function Header(){
       }
 
       let handleitemid=(id)=>{
+        console.log(itemid)
+        console.log(id)
       itemid.some(item=>item===id)?setItemid(itemid.filter(e => e !== id)):setItemid([...itemid,id])
 }
       let todos=value.split(',');
