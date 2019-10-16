@@ -1,6 +1,5 @@
 
 .Header {
-  
   position:relative;
   text-align: center;
   margin:0 auto;
@@ -15,5 +14,18 @@ height:100%;
 color:white;
 background-color:#009688;
 padding-top:4px;
+
+}
+
+@media (min-width: 0px) and (max-width: 1000px) {
+
+  .Header {
+    position:relative;
+    text-align: center;
+    margin:0 auto;
+    height:30px;
+    width:100%;
+    font-family: 'Roboto', sans-serif;
+  }
 
 }

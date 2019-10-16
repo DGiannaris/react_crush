@@ -27,19 +27,17 @@ function Header(){
       }
 
       let handleVal=(value)=>{
+        console.log(value)
         setValue(value);
       }
 
       let handleitemid=(id)=>{
-
-      if(itemid.some(item=>item===id)){
-        setItemid(itemid.filter(e => e !== id))}
-      else{
-        setItemid([...itemid,id])}
-      }
+      itemid.some(item=>item===id)?setItemid(itemid.filter(e => e !== id)):setItemid([...itemid,id])
+}
+      let todos=value.split(',');
 
 
-let todos=value.split(',');
+
 
    return (
 
