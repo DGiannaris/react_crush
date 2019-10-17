@@ -18,4 +18,5 @@
 .DeleteButton-wrapper:hover{
   width:30%;
   opacity:1;
+  background-position: left;
 }

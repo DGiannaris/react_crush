@@ -7,7 +7,7 @@ function DeleteButton(props){
 
     <div className = 'DeleteButton-wrapper' >
       <div className='DeleteButton'>
-        delete
+        x
       </div>
     </div>
     );
