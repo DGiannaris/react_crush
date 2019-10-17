@@ -2,14 +2,10 @@ import React,{useEffect} from 'react';
 import './TodoList.css';
 import Slider from './Slider.js';
 
-
 function TodoList(props) {
- let loadedtodos;
- let trimmedtodos;
-
 
  const itemsSave = (i,ind) => {
-   localStorage.setItem('todos' +i, props.todos[ind]);
+   localStorage.setItem('todos' +i, props.list[ind]);
    props.setval('');
  }
 
@@ -20,22 +16,24 @@ function TodoList(props) {
  }
 
 
- useEffect(() => {
-         const items=props.todos.map((i, ind) => {
-           if (i !== '') {
-             itemsSave(i,ind);}
+    useEffect(()=>{
+      props.setlist(props.val)
+    },[props.vis]);
 
-         });
+   useEffect(() => {
+      const items=props.list.map((i, ind) => {
+        if (i !== '') {
+          itemsSave(i,ind);}
+        });
+  },[props.list]);
 
-     },[props.vis]);
-
-useEffect(() => {
-       checkedSave(props.checked);
-         },[props.checked]);
+    useEffect(() => {
+        checkedSave(props.checked);
+    },[props.checked]);
 
 
-const  itemsShow=props.list.map((i,ind)=>{
-   if(i!==''){
+    const  itemsShow=props.list.map((i,ind)=>{
+        if(i!==''){
     return(
 
    <li className="item" key={i+ind.toString()}>
@@ -50,21 +48,17 @@ const  itemsShow=props.list.map((i,ind)=>{
     }
   })
 
+  const itemsShowtemp=props.val.split(',').map((i,ind)=>{
+     if(i!==''){
+      return(
+        <li className="item" key={i+ind.toString()} >
+          <div className="item-box" >{i}</div>
+        </li> )
 
-
-const itemsShowtemp=props.todos.map((i,ind)=>{
-   if(i!==''){
-    return(
-      <li className="item" key={i+ind.toString()} >
-        <div className="item-box" >{i}</div>
-      </li> )
-
-  }
-})
-
+    }
+  })
 
   return (
-
     <div className="todoList">
       <div className="listbox">
       <ul  className="list">

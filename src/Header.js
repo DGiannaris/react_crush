@@ -7,9 +7,9 @@ import Input from './Input.js';
 
 function Header(){
  let initlistitems=[];
-
+let todos;
    let initialitemid=JSON.parse('['+localStorage.getItem('itemschecked')+']') ;
-      if(!localStorage.itemschecked){initialitemid=[999]};
+      if(!localStorage.itemschecked){initialitemid=[-1]};
    //console.log(initialitemid)
    Object.keys(localStorage).filter((key)=>{
         if(key.includes('todo')){
@@ -28,27 +28,24 @@ function Header(){
       }
 
       let handleVal=(value)=>{
-        console.log(value)
         setValue(value);
       }
 
       let handleitemid=(id)=>{
-        console.log(itemid)
-        console.log(id)
       itemid.some(item=>item===id)?setItemid(itemid.filter(e => e !== id)):setItemid([...itemid,id])
 }
-      let todos=value.split(',');
 
-
-
+      let handlelist=(list)=>{
+        if(list.length!==0){setListItems([...listitems,value.split(',')])}
+      }
 
    return (
 
       <div className = "Header" >
         <div className = "header-text" > Just Do It < /div>
-          <TodoList todos={todos} list={listitems}
-          vis={inputVisibility} setval={handleVal} setcheck={handleitemid}
-          checked={itemid}/ >
+          <TodoList list={listitems} setlist={handlelist} val={value} setval={handleVal}
+            vis={inputVisibility} setcheck={handleitemid}
+            checked={itemid}/ >
           < MenuButton handleClick = {handleClick} / >
           {inputVisibility === true ? < Input handleval={handleVal} / > : null}
       </div>
