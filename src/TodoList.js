@@ -44,7 +44,7 @@ function TodoList(props) {
         }} onClick={(event)=>{
           props.setcheck(parseInt(event.target.attributes.getNamedItem('hackedkey').value,10));
         }}>{i}</div>
-        <DeleteButton/>
+          {props.checked.some(i=>ind.toString()==i.toString()) ? <DeleteButton/>  : null}
       </li>)
 
     }

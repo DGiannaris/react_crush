@@ -1,23 +1,21 @@
 .DeleteButton-wrapper{
-
+  background-color: red;
   position:relative;
   left:86%;
   top:-1.92em;
-  border-radius:50%;
+  border-radius:9px;
   width:32px;
-  height:32px;
-
+  height:31px;
+  opacity:0.6;
+  transition: width 0.3s,background .1s;
+  transition-property: width, background;
+  transition-duration: 0.3s, 0.1s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
 
 }
 
-img {
-  opacity:0.8;
-  position:relative;
-  left:-9px;
-  top:-9px;
-  transform: scale(0.68, 0.68);
-}
-img:hover{
+.DeleteButton-wrapper:hover{
+  width:30%;
   opacity:1;
-  cursor: pointer;
 }
