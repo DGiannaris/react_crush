@@ -13,7 +13,7 @@ height:0px;
 width:28px;
 }
 
-.Fakelist{ 
+.Fakelist{
 
   width: 100%;
   height: 0;
@@ -24,6 +24,7 @@ width:28px;
 
 .Fakelist:hover{
   background-color:#4DB6AC;
+  cursor: pointer;
 }
 
 .Dots{

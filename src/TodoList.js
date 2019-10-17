@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import './TodoList.css';
 import Slider from './Slider.js';
-
+import DeleteButton from './DeleteButton.js'
 function TodoList(props) {
 
  const itemsSave = (i,ind) => {
@@ -40,9 +40,11 @@ function TodoList(props) {
         <div className="item-box" hackedkey={ind} style={{
           textDecoration: props.checked.some(i=>ind.toString()==i.toString()) ? 'line-through' : 'none',
           backgroundColor: props.checked.some(i=>ind.toString()==i.toString()) ? '#004D40':null,
+          borderRadius: props.checked.some(i=>ind.toString()==i.toString()) ? '0px 10px 10px 10px':null,
         }} onClick={(event)=>{
           props.setcheck(parseInt(event.target.attributes.getNamedItem('hackedkey').value,10));
         }}>{i}</div>
+        <DeleteButton/>
       </li>)
 
     }

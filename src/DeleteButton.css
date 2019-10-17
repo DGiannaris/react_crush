@@ -1,0 +1,23 @@
+.DeleteButton-wrapper{
+
+  position:relative;
+  left:86%;
+  top:-1.92em;
+  border-radius:50%;
+  width:32px;
+  height:32px;
+
+
+}
+
+img {
+  opacity:0.8;
+  position:relative;
+  left:-9px;
+  top:-9px;
+  transform: scale(0.68, 0.68);
+}
+img:hover{
+  opacity:1;
+  cursor: pointer;
+}
