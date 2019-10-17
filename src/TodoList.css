@@ -56,19 +56,16 @@ box-shadow: 0 4px 6px 0 rgba(0,0,0,.25);
 
 .item-box:hover{
 
-margin-left:-40px;
-border-radius: 9px;
 background-color: #4DB6AC;
 padding:6px 0 6px 0;
-overflow: hidden;
 cursor: pointer;
 box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
 }
 
-/*li:before {
-        content: "";
-        display: inline-block;
-        height: 1rem;  /*or px or em or whatever*/
-        /*width: 0px;  /* or whatever space you want*/
-        /*margin-left: -190px;
-    }*/
+@media (min-width: 0px) and (max-width: 1000px) {
+.todoList {
+    height:800px;
+}
+
+
+}

@@ -10,12 +10,14 @@ width:28%;
 height:1.8em;
 border-radius: 7px;
 border: 1px solid #ccc;
-text-align: left;
 box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
 
 }
 
 .InputBox::placeholder{
+font-family: 'Lato', sans-serif;
+font-size:16px;
+text-align:center;
 color:#CFD8DC;
 font-weight: bolder;
 

@@ -1,12 +1,12 @@
 .DeleteButton-wrapper{
-  background-color: red;
+  background-color: #ef5350;
+  box-shadow: 0 4px 6px 0 rgba(0,0,0,.25);
   position:relative;
-  left:86%;
+  left:calc(100% - 32px);
   top:-1.92em;
-  border-radius:9px;
-  width:32px;
+  border-radius:0 15px 0 0;
+  width:20%;
   height:31px;
-  opacity:0.6;
   transition: width 0.3s,background .1s;
   transition-property: width, background;
   transition-duration: 0.3s, 0.1s;
@@ -16,7 +16,45 @@
 }
 
 .DeleteButton-wrapper:hover{
-  width:30%;
-  opacity:1;
-  background-position: left;
+
+width:20%;
+box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+}
+
+
+
+@media (min-width: 960px) and (max-width: 1280px) {
+
+  .DeleteButton-wrapper {
+    width:17%;
+
+  }
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+
+  .DeleteButton-wrapper {
+    width:12%;
+  }
+
+}
+@media (min-width: 480px) and (max-width: 700px) {
+
+  .DeleteButton-wrapper {
+    width:19%;
+    left:calc(100% - 33px);
+  }
+  .DeleteButton-wrapper:hover{
+    width:25%;
+  }
+}
+@media (min-width: 0px) and (max-width: 480px) {
+
+  .DeleteButton-wrapper {
+    width:25%;
+    left:calc(100% - 33px);
+  }
+
+  .DeleteButton-wrapper:hover{
+    width:33%;
+  }
 }

@@ -1,15 +1,21 @@
 import React from 'react';
 import './DeleteButton.css';
+import {useSpring, animated} from 'react-spring';
 
 function DeleteButton(props){
 
-    return (
+  const anim = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+  });
 
-    <div className = 'DeleteButton-wrapper' >
-      <div className='DeleteButton'>
-        x
-      </div>
-    </div>
+
+    return (
+      <animated.div  style={anim} className = "DeleteButton-wrapper" >
+        <div className='DeleteButton'>
+          x
+        </div>
+    </animated.div>
     );
   }
 
