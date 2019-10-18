@@ -1,7 +1,14 @@
 import React,{useEffect} from 'react';
+import {useState} from 'react';
 import './TodoList.css';
 import DeleteButton from './DeleteButton.js'
 function TodoList(props) {
+
+  const [hoverDel,setHoverDel]=useState(-1);
+
+  let handlehoverDel=(id)=>{
+    setHoverDel(id);
+  }
 
  const itemsSave = (i,ind) => {
    localStorage.setItem('todos' +i, props.list[ind]);
@@ -40,11 +47,13 @@ function TodoList(props) {
           textDecoration: props.checked.some(i=>ind.toString()==i.toString()) ? 'line-through' : 'none',
           backgroundColor: props.checked.some(i=>ind.toString()==i.toString()) ? '#004D40':null,
           borderRadius: props.checked.some(i=>ind.toString()==i.toString()) ? '0px 0px 0px 20px':null,
-          width: props.checked.some(i=>ind.toString()==i.toString()) ? '103%':null,
+          width: props.checked.some(i=>ind.toString()==i.toString()) ? '85%':null,
+          width:hoverDel===ind?'70%':null,
         }} onClick={(event)=>{
           props.setcheck(parseInt(event.target.attributes.getNamedItem('hackedkey').value,10));
         }}>{i}</div>
-          {props.checked.some(i=>ind.toString()==i.toString()) ? <DeleteButton/>  : null}
+          {props.checked.some(i=>ind.toString()==i.toString()) ?
+             <DeleteButton delkey={100+ind} sethover={handlehoverDel}/>  : null}
       </li>)
 
     }

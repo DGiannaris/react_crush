@@ -6,13 +6,17 @@ function DeleteButton(props){
 
   const anim = useSpring({
     opacity: 1,
-    from: { opacity: 0 },
+    from: { opacity: 0 },delay: 100
   });
 
 
     return (
-      <animated.div  style={anim} className = "DeleteButton-wrapper" >
-        <div className='DeleteButton'>
+      <animated.div  style={anim} className = "DeleteButton-wrapper"
+    >
+        <div className='DeleteButton'  delkey={props.delkey}
+          onMouseEnter={(event)=>props.sethover(parseInt(event.target.attributes.getNamedItem('delkey').value))
+          }
+          >
           x
         </div>
     </animated.div>

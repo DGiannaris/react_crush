@@ -21,6 +21,7 @@ let todos;
     const [inputVisibility,setInputVisibility]=useState(false);
     const [itemid,setItemid]=useState([...initialitemid]);
     const [listitems,setListItems]=useState([...initlistitems]);
+    
 
       let handleClick=()=>{
         setInputVisibility(!inputVisibility);
@@ -38,6 +39,9 @@ let todos;
       let handlelist=(list)=>{
         if(list.length!==0){setListItems([...listitems,value.split(',')])}
       }
+
+
+
 
    return (
 
