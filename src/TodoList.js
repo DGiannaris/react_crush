@@ -24,6 +24,7 @@ function TodoList(props) {
 
     useEffect(()=>{
       props.setlist(props.val)
+
     },[props.vis]);
 
    useEffect(() => {
